@@ -37,5 +37,23 @@ module Apipie
         "<link type='text/css' rel='stylesheet' href='#{Apipie.full_url("stylesheets/#{file}")}'/>"
       end.join("\n").html_safe
     end
+
+    def show_disqus
+      return if Apipie.configuration.disqus_shortname.blank?
+      disqus = <<-END
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            var disqus_shortname = '#{Apipie.configuration.disqus_shortname}';
+            (function() {
+                var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      END
+      disqus.html_safe
+    end
   end
 end

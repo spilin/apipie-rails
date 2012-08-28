@@ -26,7 +26,7 @@ module Apipie
   end
 
   class Configuration
-    attr_accessor :app_name, :app_info, :copyright, :markup,
+    attr_accessor :app_name, :app_info, :copyright, :markup, :disqus_shortname,
       :validate, :api_base_url, :doc_base_url, :required_by_default, :layout
 
     alias_method :validate?, :validate
@@ -102,6 +102,7 @@ module Apipie
       @api_base_url = ""
       @doc_base_url = "/apipie"
       @layout = "apipie/apipie"
+      @disqus_shortname = nil
     end
   end
 
