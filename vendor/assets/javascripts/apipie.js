@@ -1,6 +1,2 @@
-$(document).ready(function() {
-  if (typeof prettyPrint == 'function') {
-    $('pre.ruby').addClass('prettyprint lang-rb');
-    prettyPrint();
-  }
-});
+//= require apipie/jquery-1.8.1.min
+//= require apipie/bootstrap.min

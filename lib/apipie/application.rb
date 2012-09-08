@@ -7,6 +7,11 @@ module Apipie
 
     # we need engine just for serving static assets
     class Engine < Rails::Engine
+      initializer 'assets' do |app|
+        if app.config.try(:assets).try(:enabled)
+          app.config.assets.precompile += %w{apipie.css apipie.js}
+        end
+      end
       initializer "static assets" do |app|
         app.middleware.use ::Apipie::StaticDispatcher, "#{root}/app/public", Apipie.configuration.doc_base_url
       end
