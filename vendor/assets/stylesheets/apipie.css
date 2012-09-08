@@ -1,0 +1,12 @@
+/*
+*= require apipie/bootstrap.min
+*= require apipie/bootstrap-responsive.min
+*= require_self
+*/
+body {
+  padding-top: 20px;
+  padding-bottom: 40px;
+}
+.sidebar-nav {
+  padding: 9px 0;
+}
