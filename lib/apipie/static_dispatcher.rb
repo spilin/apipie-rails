@@ -27,7 +27,8 @@ module Apipie
 
     def ext
       @ext ||= begin
-        ext = ::ActionController::Base.page_cache_extension
+        # Rails 4 deprecation error fix
+        ext = ::ActionController::Base.respond_to?(:default_static_extension) ? ::ActionController::Base.default_static_extension : ::ActionController::Base.page_cache_extension
         "{,#{ext},/index#{ext}}"
       end
     end
